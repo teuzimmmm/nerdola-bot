@@ -1,0 +1,29 @@
+{
+  "name": "nerdolinha-bot",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabriellucascm/nerdolinha-bot.git"
+  },
+  "keywords": [
+    "bot",
+    "nerd",
+    "inf",
+    "cefet"
+  ],
+  "author": "teuzim/perchuts",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gabriellucascm/nerdolinha-bot/issues"
+  },
+  "homepage": "https://github.com/gabriellucascm/nerdolinha-bot#readme",
+  "dependencies": {
+    "discord.js": "^12.5.3",
+    "yarn": "^1.22.10"
+  }
+}
