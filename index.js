@@ -10,24 +10,27 @@ client.on("message", function(message) {
     if (!message.content.startsWith(prefix)) return
   
     const commandBody = message.content.slice(prefix.length)
-    const args = commandBody.split(' ')
+    const args = commandBody.split(" ")
     const command = args.shift().toLowerCase()
-
-    if (command[0] === "ping") {
+    console.log();
+    if (command === "ping") {
         //usage: !nerd ping
         //comando simples que ve o ping do message.author
         const timeTaken = Date.now() - message.createdTimestamp;
         message.reply(`vai se foder mamaco filho da puta; seu ping é ${timeTaken}ms.`)
     }
-    if (command[0] === "adicionar" && message.member.roles.cache.some(role => role.name === 'parlamento')) {
-
-        //usage: !nerd adicionar ...,...,..., 
+    if (command === "adicionar" && message.member.roles.cache.some(role => role.name === 'parlamento')) {
+        //usage (sem os colchetes) : !nerd adicionar [matéria], [tarefa], [prazo de entrega] 
         //comando que somente ADMs podem dar para adicionar tarefas novas ao banco de dados
+        let params = commandBody.slice("adicionar ".length).split(/, ?/g);
+        message.reply(`matéria: ${params[0]}\ntarefa: ${params[1]}\nprazo de entrega: ${params[2]}`)
         
     }
-    if (command[0] === "remover" && message.member.roles.cache.some(role => role.name === 'parlamento')) {
-        let params = commandBody.slice("remover").split(',');
-        message.reply(`matéria: ${params[0]}\ntítulo da tarefa:${params[1]}\ndescrição da matéria:`)
+    if (command === "remover" && message.member.roles.cache.some(role => role.name === 'parlamento')) {
+        //usage (sem os colchetes) : !nerd remover [matéria], [tarefa], [prazo de entrega no formato DD/MM HH:MM] 
+        //comando que somente ADMs podem dar para remover tarefas do banco de dados
+        let params = commandBody.slice("remover ".length).split(/, ?/g);
+        message.reply(`matéria: ${params[0]}\ntarefa: ${params[1]}\nprazo de entrega: ${params[2]}`)
 
 
     }
